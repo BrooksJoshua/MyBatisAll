@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="logImpl" value="LOG4J2"/>
+    </settings>
+    <typeAliases>
+        <!--        <typeAlias type="org.example.Emp" alias="emp"/>-->
+        <!-- 将该包下的所有起别名为： 类的短路径且首字母小写-->
+        <package name="org.example.pojo"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="username" value="root"/>
+                <property name="password" value=""/>
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url"
+                          value="jdbc:mysql://localhost:3306/bilibili_course?useUnicode=true&amp;serverTimezone=Asia/Shanghai&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="org/example/mapper/EmpMapper.xml"/>
+        <mapper resource="org/example/mapper/DeptMapper.xml"/>
+        <mapper resource="org/example/mapper/BonusMapper.xml"/>
+        <mapper resource="org/example/mapper/SalgradeMapper.xml"/>
+
+    </mappers>
+</configuration>
